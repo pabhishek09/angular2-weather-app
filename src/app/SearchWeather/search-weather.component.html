@@ -1,0 +1,4 @@
+<div class="row search-weather dropdown" [formGroup]="searchForm">
+    <input type="text" class="form-control" placeholder="Search weather for" formControlName="city">
+    <autocomplete [cityList]="autocompleteRef"></autocomplete>
+</div>

@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {  WeatherService } from './Services/WeatherService/weather.service';
 
 @Component({
-  moduleId: module.id,
-  selector: 'my-app',
-  templateUrl: './app.component.html'
+  selector: 'app-root',
+  template: `
+      <div class="container">
+        <search-weather></search-weather>
+        <h1>Landing page</h1>
+      </div>
+             `
 })
 export class AppComponent  {
 
@@ -18,8 +22,7 @@ export class AppComponent  {
     .subscribe((weatherData) => {
         this.cityDetails = weatherData['city'];
         this.weatherDetails = this.WeatherService.formatWeatherData(weatherData['list']);
-          console.log(this.cityDetails);
-          console.log(this.weatherDetails);
+        console.log(this.weatherDetails);
       },
       (err) => {console.log(err)});
   }

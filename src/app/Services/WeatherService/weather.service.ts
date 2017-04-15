@@ -26,6 +26,7 @@ export class WeatherService {
 
       let dateObject: any= {};
 
+      if (weatherData && weatherData.length>0) {
         weatherData.forEach((forecast: any) => {
 
             let utcDate = forecast.dt*1000;
@@ -36,6 +37,7 @@ export class WeatherService {
             }
             dateObject[forecast.date].push(forecast);
         });
+      }
 
         let dateSortedData: any = [];
         for(let date in dateObject) {
