@@ -1,28 +1,32 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'autocomplete',
     template: `
-        <ul class="dropdown-menu">
-            <li><a *ngFor="let city of autoCompleteCityList">{{city.name}}</a></li>
+        <ul class="autocomplete-list list-group">
+            <li class="list-group-item" *ngFor="let city of cityList" (click)="onClick(city._id)"><a>{{city.name}}</a></li>
         </ul>
-               `
+               `,
+        styles: [
+            `
+            .autocomplete-list {
+                position: absolute;
+                z-index: 10;
+                width: 100%;
+            }
+            .autocomplete-list>li {
+                cursor: pointer;
+            }
+            `
+        ]
 })
-export class AutoCompleteComponent implements OnChanges{
+export class AutoCompleteComponent{
     
     autoCompleteCityList: any;
     @Input() cityList: any;
+    @Output() onSelect: EventEmitter<number> = new EventEmitter<number>();
 
-    ngOnChanges(changes: SimpleChanges) {
-        let cityListData = changes['cityList'].currentValue;
-        if ((changes['cityList']) && (cityListData)) {
-            if(cityListData.length>0) {
-                this.autoCompleteCityList = cityListData;
-                console.log(this.autoCompleteCityList);
-            }
-            else {
-                console.log('no match found');
-            }
-        }
+    onClick(cityId) {
+        this.onSelect.emit(cityId);
     }
 }

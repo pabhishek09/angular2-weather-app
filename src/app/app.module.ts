@@ -4,8 +4,10 @@ import { HttpModule, Http } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { SearchWeatherComponent } from './SearchWeather/search-weather.component';
 import { AutoCompleteComponent } from './SearchWeather/autocomplete.component';
-import { WeatherService } from './Services/WeatherService/weather.service';
-import { SearchWeatherService } from './SearchWeather/search-weather.service';
+import { WeatherDisplayComponent } from './WeatherDisplayComponent/weather-display.component';
+import { WeatherPanelComponent } from './WeatherDisplayComponent/WeatherBasePanel/weather-panel.component';
+import { WeatherTileComponent } from './WeatherDisplayComponent/WeatherBasePanel/WeatherTiles/weather-tile.component';
+import { WeatherService } from './WeatherService/weather.service';
 import { DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -18,11 +20,14 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [ 
         AppComponent,
         SearchWeatherComponent,
-        AutoCompleteComponent
+        AutoCompleteComponent,
+        WeatherDisplayComponent,
+        WeatherPanelComponent,
+        WeatherTileComponent
         ],
+  entryComponents: [ AutoCompleteComponent ],
   providers: [
     DatePipe,
-    SearchWeatherService, 
     WeatherService
      ],
   bootstrap:    [ AppComponent ]
