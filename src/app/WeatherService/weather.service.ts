@@ -20,6 +20,7 @@ export class WeatherService {
         let params = new URLSearchParams();
         params.set('id', _id);
         params.set('APPID', this.appKey);
+        params.set('units', 'metric');
         return this.http.get(this.baseUrl, {search: params})
         .map((res) => {
              let data = res.json();
@@ -37,6 +38,7 @@ export class WeatherService {
             let utcDate = forecast.dt*1000;
 
             forecast['date'] = this.datePipe.transform(utcDate, 'yyyy-MM-dd');
+            forecast['time'] = this.datePipe.transform(utcDate, 'HH:mm');
             if(!dateObject[forecast.date]) {
                 dateObject[forecast.date] = [];
             }
@@ -70,3 +72,4 @@ export class WeatherService {
         });
     }
 }
+

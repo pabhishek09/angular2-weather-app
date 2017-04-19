@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face{ 
+	font-family: 'Noway';
+	src: url('./assets/fonts/noway-regular-webfont.eot');
+	src: url('./assets/fonts/noway-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('./assets/fonts/noway-regular-webfont.woff') format('woff'),
+	     url('./assets/fonts/noway-regular-webfont.ttf') format('truetype'),
+	     url('./assets/fonts/noway-regular-webfont.svg#webfont') format('svg');
+}
+
+body {
+    min-height: 100%;
+    background-image: url('./assets/weather.png');
+    font-family: 'Noway' !important;
+}

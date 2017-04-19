@@ -1,0 +1,8 @@
+<li class="list-group-item weather-tile" (click)="changeActiveDayWeather()">
+  <span class="col-xs-4 col-md-4 weather-tile__date">{{tileData[0].date | date:'EEEE'}}</span>
+  <!--<span class="weather-tile__description">{{tileData[0].weather[0].description}}</span>-->
+  <div class="col-xs-4 col-md-4 weather-tile__img">
+    <img src="http://openweathermap.org/img/w/{{tileData[0].weather[0].icon}}.png">
+  </div>
+  <span class="col-xs-4 col-md-4 weather-tile__temp">{{tileData[0].main.temp}} &deg;C</span>
+</li>

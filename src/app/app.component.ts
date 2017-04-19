@@ -8,7 +8,11 @@ import {  WeatherService } from './WeatherService/weather.service';
         <search-weather (getCityDetails)="getWeatherById($event)"></search-weather>
         <weather-display [weatherDetails]="weatherDetails" [cityDetails]="cityDetails"></weather-display>
       </div>
-             `
+             `,
+  styles: [
+    `
+    `
+  ]
 })
 export class AppComponent {
 

@@ -16,6 +16,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             }
             .autocomplete-list>li {
                 cursor: pointer;
+                background-color: #BCF2FF;
+                border: 1px solid #fff;
+            }
+            .autocomplete-list>li:first-child {
+                border-top: none;
+            }
+            .autocomplete-list>li>a {
+                color: #000;
             }
             `
         ]
